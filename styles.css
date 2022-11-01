@@ -1,0 +1,86 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "Euclid Circular A", Poppins;
+}
+
+.container{
+	background-color: #373942;
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+}
+
+.block.move{
+	width: 100vw;
+}
+
+.block-title{
+	font-size: 1rem;
+	font-weight: 400;
+	color: rgba(255,255, 255, 0.95);
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.block-component{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 12rem;
+}
+
+.move-button{
+	border: 0px;
+	overflow: hidden;
+	-webkit-mask-image: -webkit-linear-gradient(white, black);
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 4rem;
+	padding: 0 3rem;
+	border-radius: 0.5rem;
+	font-size: 1.125rem;
+	color: #FFFFFF;
+	cursor: wait;
+}
+
+@keyframes move{
+	0%{
+		transform: translateX(0);
+	}
+
+	100%{
+		transform: translateX(-1.75rem);
+	}
+}
+
+.move-button::before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 125rem;
+	height: 100%;
+	border-radius: inherit;
+	background: #d45769 
+	repeating-linear-gradient(
+		60deg,
+		transparent,
+		transparent 0.75rem,
+		#b74a4c 0.75rem, 
+		#b74a4c 1.5rem
+	);
+	animation: move 1s infinite linear;
+}
+
+.move-button-text{
+	position: relative;
+	z-index: 1;
+}
